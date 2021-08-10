@@ -2,6 +2,8 @@ from rest_framework import serializers
 from .models import Drugstore, Schedule, UserDrugstoreRelation
 from django.contrib.auth.models import User
 import base64
+import time
+import random
 import os
 
 
@@ -33,6 +35,10 @@ class ScheduleSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Schedule
 		fields = ['pk', 'name', 'file', 'created_at', 'drugstore',]
+
+	def create(self, validated_data):
+		validated_data['file'].name = str(time.time()) + str(random.random()) + '.xlsx'
+		return Schedule.objects.create(**validated_data)
 
 
 

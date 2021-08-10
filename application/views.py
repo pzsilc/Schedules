@@ -6,8 +6,15 @@ from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from .permissions import DrugstorePermission
+from django.shortcuts import render
 import os
 # Create your views here.
+
+
+
+class Home:
+	def index(request, pk=None):
+		return render(request, 'index.html')
 
 
 
