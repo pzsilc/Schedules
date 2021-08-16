@@ -23,7 +23,7 @@ class Schedule(models.Model):
 
 
 class UserDrugstoreRelation(models.Model):
-	user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
+	user = models.ForeignField(User, on_delete=models.CASCADE, blank=True, null=True)
 	drugstore = models.ForeignKey(Drugstore, on_delete=models.CASCADE)
 
 	def __str__(self):
