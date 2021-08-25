@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from application import views 
+from app import views 
 from django.conf import settings
 from django.conf.urls.static import static
 
